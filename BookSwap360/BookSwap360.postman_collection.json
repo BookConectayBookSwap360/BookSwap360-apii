@@ -1,0 +1,280 @@
+{
+	"info": {
+		"_postman_id": "deaa87bb-603e-4eb6-861e-cd3d6d6e066d",
+		"name": "BookSwap360",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "18013479"
+	},
+	"item": [
+		{
+			"name": "Crear usuario",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Christian\",\r\n    \"email\": \"johndoe@example.com\",\r\n    \"password\": \"password\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/usuarios",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"usuarios"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Listar Usuarios",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/usuarios",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"usuarios"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Publicar Libro",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\": \"Mi Libro\",\r\n    \"author\": \"Autor Ejemplo\",\r\n    \"isbn\": \"1234567890\",\r\n    \"category\": \"Ficción\",\r\n    \"condition\": \"Nuevo\",\r\n    \"publishedDate\": \"2023-09-27\",\r\n    \"status\": \"Intercambiado\",\r\n    \"owner\": {\r\n        \"id\": 9\r\n    }\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/libros",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"libros"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Editar Libro",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\": \"Mi Libro\",\r\n    \"author\": \"Autor Ejemplo\",\r\n    \"isbn\": \"1234567890\",\r\n    \"category\": \"Ficción\",\r\n    \"condition\": \"Nuevo\",\r\n    \"publishedDate\": \"2023-09-27\",\r\n    \"status\": \"Disponible\",\r\n    \"owner\": {\r\n        \"id\": 8\r\n    }\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/libros/1",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"libros",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Actualizar Estado Libro",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": 20,\r\n    \"status\": \"Disponible\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/libros",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"libros"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Listar Libros",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/libros",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"libros"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Listar Libros por ID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/libros/1",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"libros",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Crear Intercambio",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"sender\": {\r\n        \"id\": 9\r\n    },\r\n    \"receiver\": {\r\n        \"id\": 2\r\n    },\r\n    \"book\": {\r\n        \"id\": 20\r\n    },\r\n    \"createdAt\": \"2023-09-27T12:00:00\",\r\n    \"updatedAt\": \"2023-09-27T12:00:00\"\r\n}\r\n\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/intercambios",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"intercambios"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Crear Solicitud Intercambio",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"requester\": {\r\n        \"id\": 9\r\n    },\r\n    \"requestedBook\": {\r\n        \"id\": 1\r\n    },\r\n    \"offeredBook\": {\r\n        \"id\": 20\r\n    },\r\n    \"status\": \"Pendiente\",\r\n    \"createdAt\": \"2023-09-27T12:00:00\",\r\n    \"updatedAt\": \"2023-09-27T12:00:00\"\r\n}\r\n\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/solicitudes",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"solicitudes"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Listar Libros Intercambiados",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/intercambios",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"intercambios"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Listar Libros Solicitados",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/solicitudes",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"solicitudes"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "base_url",
+			"value": "http://localhost:8092/bookswap360/v1",
+			"type": "string"
+		}
+	]
+}
